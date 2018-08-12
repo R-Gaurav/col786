@@ -8,7 +8,7 @@
 # Note: Image should be in *.nii.gz format or *.hdr or *.img format.
 #
 # Run as:
-# python voxel_time_series_generator.py <image_name> <x> <y> <z>
+# python voxel_time_series_generator.py <path/to/image_name> <x> <y> <z>
 #
 
 import nibabel as nib
