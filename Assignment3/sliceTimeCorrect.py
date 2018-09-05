@@ -82,22 +82,22 @@ def _write_file(sof, msg, output_file):
   f.close()
   sys.exit()
 
-def _2d_linear_interpolate(first_slice, last_slice, fst_slc_tme, lst_slc_tme,
+def _2d_linear_interpolate(fst_vol_slice, lst_vol_slice, fv_slc_tme, lv_slc_tme,
     target_time):
   """
-  It linearly interpolates from the first and last slice at the target time.
+  It linearly interpolates from the first and last vol slice at the target time.
 
   Args:
-    first_slice (numpy.ndarray): A 2D matrix.
-    last_slice (numpy.ndarray): A 2D matrix.
-    fst_slc_tme (float): Time when first slice was taken.
-    lst_slc_tim (float): Time when last slice was taken.
+    fst_vol_slice (numpy.ndarray): A 2D matrix (Y1).
+    lst_vol_slice (numpy.ndarray): A 2D matrix (Y2).
+    fv_slc_tme (float): Time when first slice was taken (X1).
+    lv_slc_tme (float): Time when last slice was taken (X2).
     target_time (float): A target time lying between the times of first slice
-        and last slice.
+        and last slice (X).
   """
-  m1 = target_time - fst_slc_tme
-  m2 = lst_slc_tme - target_time
-  return (m1 * last_slice + m2 * first_slice) / (m1 + m2)
+  # Find the slope of linear line from (X1, Y1) to (X2, Y2).
+  m = (lst_vol_slice - fst_vol_slice) / (lv_slc_tme - fv_slc_tme)
+  return m * (target_time - fv_slc_tme) + fst_vol_slice
 
 def do_slice_time_correction(img_file, TR, target_time, st_acq_file,
     output_file):
