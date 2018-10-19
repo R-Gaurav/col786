@@ -1,2 +1,5 @@
 # Ignore data directory.
 data/
+.DS_Store
+.pyc
+misc/
