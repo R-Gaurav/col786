@@ -3,3 +3,5 @@ data/
 .DS_Store
 .pyc
 misc/
+Assignment5/output*
+Assignment5/test.sh
