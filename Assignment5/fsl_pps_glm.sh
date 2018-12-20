@@ -5,7 +5,9 @@
 # runs. Modification to the copied design.fsf can be automated through a bash
 # script similar to this.
 #
-# For more information: https://wiki.biac.duke.edu/biac:fsl:guide
+# For more information:
+#   https://wiki.biac.duke.edu/biac:fsl:guide
+#   http://fsl.fmrib.ox.ac.uk/fslcourse/lectures/scripting/s_0020.htm
 
 echo "Script for FSL Preprocessing and GLM Analysis"
 echo "============================================="
