@@ -1,8 +1,4 @@
----
-tags: neuroimaging
----
-
-This blog details out the assignment details of COL 786: Advanced Functional
+This dir contains the assignment details of COL 786: Advanced Functional
 Brain Imaging course.
 
 The course consisted of 6 assignments, namely:
@@ -20,8 +16,9 @@ Given a functional image, TR, a slice time acquisition file which contains the
 time at which each slice was acquired and target time, write a program to
 perform slice time correction using linear interpolation. [Link to code](https://github.com/R-Gaurav/col786/blob/master/Assignment3/sliceTimeCorrect.py)
 
-Note: The slices are acquired in parallel.
-Assumption: The first and last volume are kept constant.
+  Note: The slices are acquired in parallel.
+  
+  Assumption: The first and last volume are kept constant.
 
 * Assignment 4:
 
@@ -39,20 +36,20 @@ subject, his structural data, five covariates one for each of the five motor
 tasks and slice time acquisition file, use FSL tool via command line interface
 to perform all the preprocessing and GLM analysis.
 
-Note: The subject is presented with visual cues to either tap their left or right
-fingers, squeeze their left or right toes or move their tongue to map his motor
-areas. Each block of a movement type lasts 12 seconds (10 movements) and is
-preceded by a 3 seconds cue. In each run there are 13 blocks, with 2 of tongue
-movements, 4 of hand movements (2 right, 2 left) and 4 of foot movements (2
-right, 2 left). In addition, there are 3 15-seconds fixation blocks per run.
+  Note: The subject is presented with visual cues to either tap their left or right
+  fingers, squeeze their left or right toes or move their tongue to map his motor
+  areas. Each block of a movement type lasts 12 seconds (10 movements) and is
+  preceded by a 3 seconds cue. In each run there are 13 blocks, with 2 of tongue
+  movements, 4 of hand movements (2 right, 2 left) and 4 of foot movements (2
+  right, 2 left). In addition, there are 3 15-seconds fixation blocks per run.
 
-Find contrasts for all five motor tasks. Use 3mm for spatial smoothing and 100s
-high pass filter. [Link to code](https://github.com/R-Gaurav/col786/tree/master/Assignment5)
+  Find contrasts for all five motor tasks. Use 3mm for spatial smoothing and 100s
+  high pass filter. [Link to code](https://github.com/R-Gaurav/col786/tree/master/Assignment5)
 
 * Assignment 6:
-With respect to Assignment 5, perform preprocessing using FSL tool and write a
-program for performing GLM analysis to find z-stat values. Use FSL again for
-full model processing on same data and compare the z-stat values. [Link to code](
-https://github.com/R-Gaurav/col786/blob/master/Assignment6/python_glm.py)
+  With respect to Assignment 5, perform preprocessing using FSL tool and write a
+  program for performing GLM analysis to find z-stat values. Use FSL again for
+  full model processing on same data and compare the z-stat values. [Link to code](
+  https://github.com/R-Gaurav/col786/blob/master/Assignment6/python_glm.py)
 
-Note: Perform analysis for only the left foot movement covariate.
+  Note: Perform analysis for only the left foot movement covariate.
