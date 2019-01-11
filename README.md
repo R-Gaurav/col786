@@ -1,5 +1,5 @@
 This dir contains the assignment details of [COL 786: Advanced Functional
-Brain Imaging course](http://www.cse.iitd.ernet.in/~rahulgarg/Teaching/2016/COL786.htm).
+Brain Imaging](http://www.cse.iitd.ernet.in/~rahulgarg/Teaching/2016/COL786.htm) course.
 
 The course consisted of 6 assignments, namely:
 
