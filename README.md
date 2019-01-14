@@ -32,7 +32,7 @@ perform slice time correction using linear interpolation. [Link to code](https:/
 
 * Assignment 5:
 Given a task based functional data (Buckner et al. 2011; Yeo et al. 2011) of a
-subject, his structural data, five covariates one for each of the five motor
+subject, his structural data, five covariates, one for each of the five motor
 tasks and slice time acquisition file, use FSL tool via command line interface
 to perform all the preprocessing and GLM analysis.
 
