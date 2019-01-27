@@ -27,11 +27,9 @@ class PyGLM(object):
       TR (float): Time taken for to record each brain scan.
       num_vols (int): Number of brain volumes acquired during experiment.
     """
-    pass
     self._ni_data = nib.load(bold_data_path)
     self._bold_data = self._ni_data.get_fdata()
     self._stimulus_file_path = stimulus_file_path
-    self._TR = TR
     self._num_vols = num_vols
     self._resolution = TR
     self._contrast = np.atleast_2d([0, 1]).T
@@ -210,34 +208,32 @@ if __name__=="__main__":
 
   ob = PyGLM(processed_bold_data_path, stimulus_file_path, 2.2, 104)
 
-#  v_x, v_y, v_z = 29, 28, 31
-#  design_mat = ob._get_design_matrix()
-#  beta_cap, t_stat, dof, upper_tail_p = ob._get_t_statistic_for_one_voxel(
-#      v_x, v_y, v_z)
-#  plt.plot(np.dot(design_mat, beta_cap))
-#  plt.plot(ob._bold_data[v_x, v_y, v_z, :])
-#  plt.show()
-#  print len(stimulus_signal)
-#  plt.plot(stimulus_signal)
-  t_stat_list = []
-  p_list = []
-  beta_cap_list = []
-  for v_x in range(ob._bold_data.shape[0]):
-    for v_y in range(ob._bold_data.shape[1]):
-      for v_z in range(ob._bold_data.shape[2]):
-        voxel_time_course = ob._bold_data[v_x, v_y, v_z, :]
-        beta_cap, t_stat, dof, upper_tail_p = ob._get_t_statistic_for_one_voxel(
-            v_x, v_y, v_z)
-        #print ("Beta: ", beta_cap, "T-Stat: ", t_stat, "DOF: ", dof, "P: ",
-        #       upper_tail_p)
-        #plt.plot(np.dot(design_mat, beta_cap), label="Assumed HRF signal")
-        #plt.plot(voxel_time_course, label="Voxel's Time Series")
-        #plt.show()
-        t_stat_list.append((t_stat, (v_x, v_y, v_z)))
-        beta_cap_list.append(beta_cap)
-        p_list.append(upper_tail_p)
-    print "x_dim: %s Done!" % v_x
-
-  pickle.dump(t_stat_list, open("T-Stat_list.p", "wb"))
-  pickle.dump(beta_cap_list, open("beta_cap_list.p", "wb"))
-  pickle.dump(p_list, open("p_list.p", "wb"))
+  v_x, v_y, v_z = 31, 33, 29
+  design_mat = ob._get_design_matrix()
+  beta_cap, t_stat, dof, upper_tail_p = ob._get_t_statistic_for_one_voxel(
+      v_x, v_y, v_z)
+  plt.plot(np.dot(design_mat, beta_cap))
+  plt.plot(ob._bold_data[v_x, v_y, v_z, :])
+  plt.show()
+#  t_stat_list = []
+#  p_list = []
+#  beta_cap_list = []
+#  for v_x in range(ob._bold_data.shape[0]):
+#    for v_y in range(ob._bold_data.shape[1]):
+#      for v_z in range(ob._bold_data.shape[2]):
+#        voxel_time_course = ob._bold_data[v_x, v_y, v_z, :]
+#        beta_cap, t_stat, dof, upper_tail_p = ob._get_t_statistic_for_one_voxel(
+#            v_x, v_y, v_z)
+#        #print ("Beta: ", beta_cap, "T-Stat: ", t_stat, "DOF: ", dof, "P: ",
+#        #       upper_tail_p)
+#        #plt.plot(np.dot(design_mat, beta_cap), label="Assumed HRF signal")
+#        #plt.plot(voxel_time_course, label="Voxel's Time Series")
+#        #plt.show()
+#        t_stat_list.append((t_stat, (v_x, v_y, v_z)))
+#        beta_cap_list.append(beta_cap)
+#        p_list.append(upper_tail_p)
+#    print "x_dim: %s Done!" % v_x
+#
+#  pickle.dump(t_stat_list, open("T-Stat_list.p", "wb"))
+#  pickle.dump(beta_cap_list, open("beta_cap_list.p", "wb"))
+#  pickle.dump(p_list, open("p_list.p", "wb"))
