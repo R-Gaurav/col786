@@ -2,15 +2,16 @@
 # This script used nipy to perform the GLM analysis of the pre-processed
 # Neuroimaging data.
 #
+# Links: https://nipype.readthedocs.io/en/latest/users/examples/fmri_nipy_glm.html#preprocessing-pipeline-nodes
+#
 
-import matplotlib.pyplot as plt
+
 import nipy as nip
 import numpy as np
 import pickle
 
 from nipy.modalities.fmri.glm import GeneralLinearModel
 from nipy.modalities.fmri.design import block_amplitudes
-from python_glm import PyGLM
 
 class NipyGLM(object):
   def __init__(self, prcsd_bold_data_path, stmls_file_path, TR):
